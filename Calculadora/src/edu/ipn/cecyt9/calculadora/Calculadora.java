@@ -53,7 +53,7 @@ public class Calculadora extends JFrame {
 	 */
 	public Calculadora() {
 		super();
-		setSize(250, 300);
+		setSize(300, 300);
 		setTitle("Calculadora Simple");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -90,8 +90,16 @@ public class Calculadora extends JFrame {
 		nuevoBotonOperacion("-");
 		nuevoBotonOperacion("*");
 		nuevoBotonOperacion("/");
+                nuevoBotonOperacion("MOD");
+		nuevoBotonOperacion("POT");
+                nuevoBotonOperacion("SIN");
+		nuevoBotonOperacion("COS");
+                nuevoBotonOperacion("TAN");
+                nuevoBotonOperacion("LOG");  
 		nuevoBotonOperacion("=");
 		nuevoBotonOperacion("CE");
+                
+                
 
 		panel.add("East", panelOperaciones);
 
@@ -127,7 +135,7 @@ public class Calculadora extends JFrame {
 	 */
 	private void nuevoBotonOperacion(String operacion) {
 		JButton btn = new JButton(operacion);
-		btn.setForeground(Color.RED);
+		btn.setForeground(Color.BLUE);
 
 		btn.addMouseListener(new MouseAdapter() {
 
@@ -192,8 +200,19 @@ public class Calculadora extends JFrame {
 			resultado /= new Double(pantalla.getText());
 		} else if (operacion.equals("*")) {
 			resultado *= new Double(pantalla.getText());
-		}
-
+		}else if (operacion.equals("MOD")) {
+			resultado %= new Double(pantalla.getText());
+                }else if (operacion.equals("POT")) {
+                        resultado = Math.pow(resultado, new Double(pantalla.getText()));
+                }else if (operacion.equals("SIN")) {
+                        resultado = Math.sin(resultado);
+                }else if (operacion.equals("COS")) {
+                        resultado = Math.cos(resultado);
+                }else if (operacion.equals("TAN")) {
+                        resultado = Math.tan(resultado);
+                }else if (operacion.equals("LOG")) {
+                        resultado = Math.log(resultado);
+                }
 		pantalla.setText("" + resultado);
 		operacion = "";
 	}

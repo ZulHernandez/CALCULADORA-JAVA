@@ -1,2 +1,2 @@
-# calculadora
-calculadora básica echa en java
+# CALCULADORA-JAVA
+A simple calculator in JAVA
